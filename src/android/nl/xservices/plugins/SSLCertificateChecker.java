@@ -29,7 +29,7 @@ public class SSLCertificateChecker extends CordovaPlugin {
             final JSONArray allowedFingerprints = args.getJSONArray(2);
             final String serverCertFingerprint = getFingerprint(serverURL);
             for (int j=0; j<allowedFingerprints.length(); j++) {
-              final String allowedFingerprint = allowedFingerprints.get(j).toString().trim();
+              String allowedFingerprint = allowedFingerprints.get(j).toString().trim();
               allowedFingerprint = allowedFingerprint.replaceAll("\\s","");
               if (allowedFingerprint.equalsIgnoreCase(serverCertFingerprint)) {
                 callbackContext.success("CONNECTION_SECURE");
